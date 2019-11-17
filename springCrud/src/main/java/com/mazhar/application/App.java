@@ -18,6 +18,6 @@ public class App
     	ApplicationContext context = new ClassPathXmlApplicationContext("com\\mazhar\\xml\\main.xml");
     	MazharInfo obj = (MazharInfo) context.getBean("info");
         
-        obj.info();
+        obj.insertData();
     }
 }

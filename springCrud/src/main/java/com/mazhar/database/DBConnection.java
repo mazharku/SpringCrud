@@ -11,7 +11,7 @@ public class DBConnection {
      
      public void createConnection() throws SQLException {
     	 connection =  DriverManager.
-               getConnection("jdbc:mysql://localhost/facebookbot?userUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
+               getConnection("jdbc:mysql://localhost/people?userUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","");
      }
      
      
