@@ -1,5 +1,7 @@
 package com.mazhar.application;
 
+import java.util.Scanner;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,7 +10,7 @@ import com.mazhar.controller.MazharInfo;
 
 
 /**
- * Hello world!
+ * @author mazhar
  *
  */
 public class App 
@@ -17,7 +19,11 @@ public class App
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com\\mazhar\\xml\\main.xml");
     	MazharInfo obj = (MazharInfo) context.getBean("info");
-        
-        obj.insertData();
+    	Scanner sc = new Scanner(System.in);
+        System.out.println("enter name: ");
+        String name= sc.nextLine();
+        System.out.println("enter address: ");
+        String address = sc.nextLine();
+        obj.insertData(name, address);
     }
 }

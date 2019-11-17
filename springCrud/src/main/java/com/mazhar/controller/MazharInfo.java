@@ -16,7 +16,7 @@ public class MazharInfo {
 		
 	}
 	
-	public void insertData() {
-		control.insertPeople();
+	public void insertData(String name, String add) {
+		System.out.println(" query execution result retuns "+control.insertPeople(name, add));
 	}
 }
