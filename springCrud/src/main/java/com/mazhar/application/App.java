@@ -2,10 +2,14 @@ package com.mazhar.application;
 
 import java.util.Scanner;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.mazhar.controller.MazharInfo;
+import com.mazhar.database.QueryController;
+import com.mazhar.model.PeopleModel;
 
 
 
@@ -18,12 +22,12 @@ public class App
     public static void main( String[] args )
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com\\mazhar\\xml\\main.xml");
-    	MazharInfo obj = (MazharInfo) context.getBean("info");
-    	Scanner sc = new Scanner(System.in);
-        System.out.println("enter name: ");
-        String name= sc.nextLine();
-        System.out.println("enter address: ");
-        String address = sc.nextLine();
-        obj.insertData(name, address);
+    	QueryController dao = context.getBean("QueryController", QueryController.class);
+    	DataSource ds= (DataSource) context.getBean("datasource");
+    	
+    	dao.setDatasource(ds);
+    	PeopleModel ps = dao.getPeople();
+    	System.out.println("results "+ ps.getAddress());
+    	
     }
 }

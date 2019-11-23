@@ -1,6 +1,8 @@
 package com.mazhar.controller;
 
 import java.sql.Connection;
+import java.util.LinkedList;
+import java.util.List;
 
 import com.mazhar.database.DBConnection;
 import com.mazhar.database.QueryController;
@@ -17,6 +19,7 @@ public class MazharInfo {
 	}
 	
 	public void insertData(String name, String add) {
-		System.out.println(" query execution result retuns "+control.insertPeople(name, add));
+		//System.out.println(" query execution result retuns "+control.insertPeople(name, add));
+		//List<Integer> p = new LinkedList<Chracter>();
 	}
 }

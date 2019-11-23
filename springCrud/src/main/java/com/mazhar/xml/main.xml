@@ -2,5 +2,10 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-  <bean id="info" class="com.mazhar.controller.MazharInfo" />
+<bean id="QueryController" class=" com.mazhar.database.QueryController"></bean>
+<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="Url"  value="jdbc:mysql://localhost/people?serverTimezone=UTC" />
+    <property name="Username"  value="root" />
+    <property name="Password"  value="" />
+</bean>
 </beans>
