@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.mazhar.model.PeopleModel;
@@ -16,27 +17,9 @@ import com.mazhar.model.PeopleModel;
 public class QueryController {
 	
 	@Autowired
+	@Qualifier("datasource")
 	private DataSource datasource;
-   // private Connection con = DBConnection.getInitialize();
 	
-//	public boolean insertPeople(String name, String address) {
-//		try {
-//			
-//			String sql="INSERT INTO `peopleinfo`(`name`, `address`) VALUES (?,?)";
-//			PreparedStatement pst = con.prepareStatement(sql);
-//			pst.setString(1, name);
-//			pst.setString(2, address);
-//			
-//			return pst.execute();
-//			
-//		}
-//		catch(Exception e) {
-//			System.out.println("error return with "+ e);
-//			return false;
-//		}
-//		
-//		
-//	}
     public PeopleModel getPeople() {
     	PeopleModel people = null;
     	Connection con = null;

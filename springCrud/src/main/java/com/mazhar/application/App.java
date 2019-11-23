@@ -23,9 +23,6 @@ public class App
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com\\mazhar\\xml\\main.xml");
     	QueryController dao = context.getBean("QueryController", QueryController.class);
-    	DataSource ds= (DataSource) context.getBean("datasource");
-    	
-    	dao.setDatasource(ds);
     	PeopleModel ps = dao.getPeople();
     	System.out.println("results "+ ps.getAddress());
     	
