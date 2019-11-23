@@ -1,5 +1,6 @@
 package com.mazhar.application;
 
+import java.util.List;
 import java.util.Scanner;
 
 import javax.sql.DataSource;
@@ -23,8 +24,25 @@ public class App
     {
     	ApplicationContext context = new ClassPathXmlApplicationContext("com\\mazhar\\xml\\main.xml");
     	QueryController dao = context.getBean("QueryController", QueryController.class);
-    	PeopleModel ps = dao.getPeople();
-    	System.out.println("results "+ ps.getAddress());
+    	List<PeopleModel> ps = dao.getAllPeople();
+    	
+    	//Read data from MySQL
+    	
+    	for(PeopleModel p : ps) {
+    		System.out.println("ID : "+ p.getId() +" Name : "+p.getName() +" Address : "+p.getAddress());
+    	}
+    	
+    	//Insert data to MYSQL
+    	
+    	System.out.println(dao.addPeopleInfo(new PeopleModel(1,"Spring","Spring 5.2.1 ")));
+    	
+    	//Delete data from MYSQL
+    	System.out.println(dao.deletePeople(4));
+    	
+    	//Update data to MYSQL
+    	
+    	System.out.println(dao.updatePeopleInfo(new PeopleModel(5,"november", "november rain")));
+    	
     	
     }
 }

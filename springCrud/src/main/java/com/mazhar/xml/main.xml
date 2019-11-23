@@ -9,6 +9,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd" >
 
 <context:annotation-config/>
+
+<context:component-scan base-package="com.mazhar.database"/>
+
 <bean id="QueryController" class="com.mazhar.database.QueryController" />
 <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
     <property name="Url"  value="jdbc:mysql://localhost/people?serverTimezone=UTC" />
